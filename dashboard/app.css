@@ -1,4 +1,4 @@
-/* Token Radar's plain theme. The five palette values, two radii and two families are the whole style;
+/* Token Radar's theme, radar-2. The palette, two radii and two families are the whole style;
    everything else is spacing, a hairline and a type step. */
 :root {
   --canvas: #f2f5f3;
@@ -96,9 +96,15 @@ tbody tr[data-selected="true"] { background: color-mix(in srgb, var(--accent) 8%
 .implied { display: flex; align-items: center; gap: var(--step-2); }
 .status { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; white-space: nowrap; }
 .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.conf { font-family: var(--font-num); font-size: 13px; }
+.conf.high { color: var(--accent); }
+.conf.low { color: var(--muted); }
 
 .model { margin-top: var(--step-4); padding: var(--step-5); display: grid; gap: var(--step-3); }
 .formula { font-family: var(--font-num); font-size: 13px; line-height: 1.7; color: var(--muted); overflow-wrap: anywhere; }
+.comparables { margin-top: var(--step-4); padding: var(--step-5); display: grid; gap: var(--step-3); }
+.comparables table { font-size: 13px; }
+.comparables th, .comparables td { padding: var(--step-2) var(--step-3); }
 .empty { padding: var(--step-7) var(--step-5); text-align: center; display: grid; gap: var(--step-3); justify-items: center; }
 .empty p { color: var(--muted); }
 .button { min-height: 36px; padding: 0 var(--step-4); border: 1px solid var(--border); border-radius: var(--radius-control); background: var(--surface); }
@@ -137,14 +143,3 @@ tbody tr[data-selected="true"] { background: color-mix(in srgb, var(--accent) 8%
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
-
-/* radar-2: top-three spotlight and detail risks. */
-.spot { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--step-3); padding-bottom: var(--step-5); }
-.spot-card { display: grid; gap: 2px; text-align: left; padding: var(--step-4); border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--surface); }
-.spot-card:hover { border-color: var(--accent); }
-.spot-rank { font-family: var(--font-num); font-size: 12px; color: var(--accent); }
-.spot-card b { font-size: 17px; }
-.spot-value { font-size: 15px; font-weight: 600; color: var(--accent); margin-top: var(--step-1); }
-.risks { margin: var(--step-2) 0 0; padding-left: var(--step-5); display: grid; gap: var(--step-2); color: var(--muted); font-size: 13px; }
-.detail-section h3 + h3 { margin-top: var(--step-4); }
-@media (max-width: 900px) { .spot { grid-template-columns: 1fr; } }
